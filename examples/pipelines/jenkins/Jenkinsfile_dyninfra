@@ -2,7 +2,7 @@ pipeline {
   agent none
 
   parameters {
-    string(defaultValue: "specify_token_or_get_it_from_credentials", description: 'Neoload Web Token', name: 'token')
+    string(defaultValue: "b275676a8d5cb53d087bfb036dea6b2005834a79f09b4fe9", description: 'Neoload Web Token', name: 'token')
     string(defaultValue: "defaultzone", description: 'Zone identifier', name: 'zone_id')
     string(defaultValue: "https://neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
   }
