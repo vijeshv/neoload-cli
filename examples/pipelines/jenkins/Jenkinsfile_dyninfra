@@ -21,8 +21,8 @@ pipeline {
       stages {
         stage('Get NeoLoad CLI') {
           steps {
-              sh "pip3 install -U --pre neoload"
-              sh "$NEOLOAD --version"
+               "pip3 install -U --pre neoload"
+               "$NEOLOAD --version"
           }
         }
         stage('Get NeoLoad project'){
