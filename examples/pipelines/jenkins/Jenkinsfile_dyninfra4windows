@@ -8,11 +8,7 @@ pipeline {
   }
 
   stages {
-    stage('Attach Worker') {
-     steps{
-          image 'python:3-alpine'
-        }
-      
+    stage('Attach Worker') {   
         environment {
         NEOLOAD="${WORKSPACE}/.local/bin/neoload"
         HOME="${WORKSPACE}"
