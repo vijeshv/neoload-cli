@@ -12,8 +12,7 @@ pipeline {
       
           image 'python:3-alpine'
       
-      }
-      environment {
+        environment {
         NEOLOAD="${WORKSPACE}/.local/bin/neoload"
         HOME="${WORKSPACE}"
       }
