@@ -9,7 +9,7 @@ pipeline {
 
   stages {
     stage('Attach Worker') {
-        agent any{
+        agent none {
           image 'python:3-alpine'
         }
         environment {
