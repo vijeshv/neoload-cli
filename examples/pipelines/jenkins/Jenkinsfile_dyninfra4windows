@@ -9,10 +9,9 @@ pipeline {
 
   stages {
     stage('Attach Worker') {
-      agent {
-        docker {
+      
           image 'python:3-alpine'
-        }
+      
       }
       environment {
         NEOLOAD="${WORKSPACE}/.local/bin/neoload"
