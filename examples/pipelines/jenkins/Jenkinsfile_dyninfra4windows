@@ -3,7 +3,7 @@ pipeline {
 
   parameters {
     string(defaultValue: "${NLWEBToken}", description: 'Neoload Web Token', name: 'token')
-    string(defaultValue: "defaultzone", description: 'Zone identifier', name: 'zone_id')
+    string(defaultValue: "ZpPGP", description: 'Zone identifier', name: 'zone_id')
     string(defaultValue: "https://neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
   }
 
@@ -33,13 +33,14 @@ pipeline {
         }
         stage('Run Test') {
           steps {
-              bat """$NEOLOAD run \
+              bat """NEOLOAD run \
                   --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}" \
                   --external-url '${BUILD_URL}' \
                   --external-url-label 'Jenkins build ${BUILD_NUMBER}' \
                   --description "Jenkins result description" \
                   --return-0 \
                   --web-vu 50 \
+                  --reservation-durartion 1800 \
                  """
           }
         }
