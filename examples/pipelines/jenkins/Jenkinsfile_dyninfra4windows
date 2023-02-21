@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Get NeoLoad project'){
             steps {
-                bat 'curl -o simpledemo.yml  https://github.com/vijeshv/neoload-cli/blob/master/examples/pipelines/jenkins/test.yml'
+                bat 'curl -o simpledemo.yml  https://raw.githubusercontent.com/vijeshv/neoload-cli/master/examples/pipelines/jenkins/test.yml'
                  }
         }
         stage('Prepare NeoLoad test') {
