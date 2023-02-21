@@ -4,7 +4,7 @@ pipeline {
   parameters {
     string(defaultValue: "${NLWEBToken}", description: 'Neoload Web Token', name: 'token')
     string(defaultValue: "ZpPGP", description: 'Zone identifier', name: 'zone_id')
-    string(defaultValue: "https://neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
+    string(defaultValue: "https://preprod-neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
   }
 
   stages {
