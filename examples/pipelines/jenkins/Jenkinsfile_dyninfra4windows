@@ -17,7 +17,7 @@ pipeline {
         stage('Get NeoLoad CLI') {
           steps {
               bat "pip3 install -U  neoload"
-              NEOLOAD --version
+              bat "NEOLOAD --version"
           }
         }
         stage('Get NeoLoad project'){
