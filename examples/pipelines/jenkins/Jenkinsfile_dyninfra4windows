@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Get NeoLoad project'){
             steps {
-                bat 'curl -o https://raw.githubusercontent.com/Neotys-Labs/neoload-cli/master/tests/neoload_projects/simpledemo.yml'
+                bat 'curl -o simpledemo.yml  https://raw.githubusercontent.com/Neotys-Labs/neoload-cli/master/tests/neoload_projects/simpledemo.yml'
                  }
         }
         stage('Prepare NeoLoad test') {
