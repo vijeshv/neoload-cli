@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Prepare NeoLoad test') {
           steps {
-              bat """$NEOLOAD \
+              bat """NEOLOAD \
                      login --url ${params.api_url} ${params.token} \
                      test-settings --zone ${params.zone_id} --lgs 1 --scenario 'simpledemo' createorpatch "My Jenkins Test With CLI" \
                      project --path simpledemo.yml upload
