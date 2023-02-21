@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Attach Worker') {   
         environment {
-        NEOLOAD="${WORKSPACE}\neoload"
+         NEOLOAD="${WORKSPACE}/.local/bin/neoload"
         HOME="${WORKSPACE}"
       }
       stages {
