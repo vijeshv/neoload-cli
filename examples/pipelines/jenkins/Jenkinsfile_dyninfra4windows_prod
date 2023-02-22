@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Run Test') {
           steps {
-              bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --web-vu 0 --sap-vu 20   --reservation-duration "1800" 
+              bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --web-vu 0 --sap-vu 20   --reservation-duration 1800 
                  """
           }
         }
