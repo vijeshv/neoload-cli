@@ -4,7 +4,7 @@ pipeline {
   parameters {
     string(defaultValue: "enter token", description: 'Neoload Web Token', name: 'token')
     string(defaultValue: "QUD3R", description: 'Zone identifier', name: 'zone_id')
-    string(defaultValue: "https://preprod-neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
+    string(defaultValue: "https://neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
   }
 
   stages {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Get NeoLoad project'){
             steps {
-                bat 'curl -o simpledemo.yml  https://raw.githubusercontent.com/vijeshv/neoload-cli/master/examples/pipelines/jenkins/test.yml'
+                bat 'curl -o simpledemo.yml  https://raw.githubusercontent.com/Neotys-Labs/neoload-cli/master/tests/neoload_projects/simpledemo.yml'
                  }
         }
         stage('Prepare NeoLoad test') {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Run Test') {
           steps {
-              bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --sap-vu "5"   --reservation-duration "1800" 
+              bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --sap-vu "0" --sap-vu "20"   --reservation-duration "1800" 
                  """
           }
         }
