@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   parameters {
-    string(defaultValue: "e2ea4ff6dea7f4a3b9129e49705a64b1a02fa823318da3e4", description: 'Neoload Web Token', name: 'token')
+    string(defaultValue: "enter token", description: 'Neoload Web Token', name: 'token')
     string(defaultValue: "QUD3R", description: 'Zone identifier', name: 'zone_id')
     string(defaultValue: "https://preprod-neoload-api.saas.neotys.com/", description: 'NeoLoad Web Api Url', name: 'api_url')
   }
