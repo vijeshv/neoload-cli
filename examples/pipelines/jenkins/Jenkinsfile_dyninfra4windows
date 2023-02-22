@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Generate Test Report') {
           steps {
-             bat "$NEOLOAD test-results junitsla"
+             bat "NEOLOAD test-results junitsla"
           }
           post {
               always {
