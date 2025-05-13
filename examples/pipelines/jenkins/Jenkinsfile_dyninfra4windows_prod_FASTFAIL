@@ -31,12 +31,32 @@ pipeline {
                 """
           }
         }
-        stage('Run Test') {
-          steps {
-              bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --web-vu 0 --sap-vu 20   --reservation-duration 1800 
-                 """
-          }
-        }
+
+                stage('Run Test') {
+                  steps {
+                      bat """NEOLOAD run  --name "Jenkins pipeline performance regression test ${BUILD_NUMBER}"   --external-url "${BUILD_URL}"  --external-url-label "Jenkins build ${BUILD_NUMBER}"  --description "Jenkins result description"   --return-0   --web-vu 0 --sap-vu 20   --reservation-duration 1800 
+                         """
+                  }
+                }
+
+           stage('Monitor test') {
+              parallel {
+                stage('Monitor SLAs') {
+                  steps {
+                    withEnv(["HOME=${env.WORKSPACE}"]) {
+                      bat "neoload fastfail --max-failure ${env.MAX_SLA_FAILURE_PERCENT} slas cur"
+                    }
+                  }
+                }
+                stage('Wait for test finale') {
+                  steps {
+                    withEnv(["HOME=${env.WORKSPACE}"]) {
+                      bat 'neoload wait cur'
+                    }
+                  }
+                }
+              } //end parallel
+            }
         stage('Generate Test Report') {
           steps {
              bat "NEOLOAD test-results junitsla"
