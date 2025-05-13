@@ -2,7 +2,8 @@ name: NeoLoad-CLI-simpledemo
 
 sla_profiles: # defaults for dev/qa systems; can be overridden by additional slas/uat...
 - name: simpledemo_sla
-  description: Avg Resp Time >=1000ms >= 25000ms for cached queries
+  #description: Avg Resp Time >=1000ms >= 25000ms for cached queries
+  description: Avg Resp Time >=100ms >= 1000ms for cached queries
   thresholds:
   - avg-resp-time warn >= 1000ms fail >= 25000ms per interval
   - avg-elt-per-sec warn >= 0/s fail >= 1000/s per interval
